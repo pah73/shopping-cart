@@ -80,3 +80,8 @@ for selected_item in selected_items:
     item=items[0]
     gross_price=gross_price+item["price"] 
     print("... "+item["name"]+" ("+str(to_usd(item["price"]))+")")
+
+# setting up taxes
+tax_amount = gross_price*0.0875
+total_price = gross_price + tax_amount
+
