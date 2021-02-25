@@ -22,3 +22,37 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
+
+def to_usd(my_price):
+    """
+    Converts a numeric value to usd-formatted string, for printing and display purposes.
+    Param: my_price (int or float) like 4000.444444
+    Example: to_usd(4000.444444)
+    Returns: $4,000.44
+    """
+    return f"${my_price:,.2f}" #> $12,000.71
+
+# TODO: write some Python code here to produce the desired output
+# I wrote this code with help from Professor Rosetti's Shopping Cart Walkthrough
+# The try/ except statement was written with help from https://medium.com/better-programming/how-to-indefinitely-request-user-input-until-valid-in-python-388a7c85aa6e
+total_price=0
+selected_items=[]
+
+# Here, I am setting up a while loop so consumer can input
+while True:   # will contunue to ask for more items until done
+    user_input = input("Please input a user idenifier, or 'DONE' if there are no more items: ")
+    if user_input=="DONE": 
+        break # break while loop for checkout
+    else:
+        try:
+            if int(user_input)<0: #check if the value is between 1 and the number of products for sale.
+                print("There are no negative product idetifiers. Please enter a valid input. ")
+            else:
+                if int(user_input) <=len(products): # other end of range (products for sale)
+                    selected_items.append(user_input)
+                else:
+                    print("We do not have any products matching that identifier. Please enter a valid input")
+  
+        except:
+            print("Please enter a valid product identifier") # if its not a number
+
