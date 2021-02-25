@@ -85,3 +85,11 @@ for selected_item in selected_items:
 tax_amount = gross_price*0.0875
 total_price = gross_price + tax_amount
 
+# final output with adjusted pricing
+print("-----------------")
+print("SUBTOTAL:" + str(to_usd(gross_price)))    
+print("TAX:" + str(to_usd(tax_amount)))    
+print("TOTAL:" + str(to_usd(total_price)))
+print("-----------------")
+print("Thannks, Please come again !")
+print("-----------------")
