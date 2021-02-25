@@ -1,3 +1,6 @@
+# This project was completed with the help of Professor Rossetti's Guidance Screencast
+# Sean Minson and I also worked together to work out some kinks and for mapping out coding logic
+
 import time
 
 products = [
@@ -35,7 +38,7 @@ def to_usd(my_price):
 # TODO: write some Python code here to produce the desired output
 # I wrote this code with help from Professor Rosetti's Shopping Cart Walkthrough
 # The try/ except statement was written with help from https://medium.com/better-programming/how-to-indefinitely-request-user-input-until-valid-in-python-388a7c85aa6e
-total_price=0
+gross_price=0
 selected_items=[]
 
 # Here, I am setting up a while loop so consumer can input
@@ -56,3 +59,24 @@ while True:   # will contunue to ask for more items until done
         except:
             print("Please enter a valid product identifier") # if its not a number
 
+
+# user interface setup
+print("-----------------")
+print("GREEN FOODS GROCERY")
+print("WWW.GREEN-FOODS-GROCERY.COM")
+
+print("-----------------")
+
+# setting up time
+date = time.strftime("%m/%d/%Y %I:%M %p")
+print("Checkout at: ", date)
+print("-----------------")
+print("Selected Products:")
+
+#for-loop for price accumulation with each product purchase inputted
+for selected_item in selected_items:
+
+    items = [p for p in products if str(p["id"]) == str(selected_item)]
+    item=items[0]
+    gross_price=gross_price+item["price"] 
+    print("... "+item["name"]+" ("+str(to_usd(item["price"]))+")")
